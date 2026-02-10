@@ -1,10 +1,14 @@
 # RisingWave Project
 
-Este proyecto demuestra cómo conectar Kafka con RisingWave para procesar datos en tiempo real usando SQL. 
+RisingWave es una base de datos de *stream processing* en tiempo real basada en SQL.
 
-RisingWave funciona como base de datos de streaming SQL: puede suscribirse a topics de Kafka, crear vistas materializadas y ejecutar consultas en tiempo real sin necesidad de otra base de datos.
+RisingWave **implementa el protocolo de Kafka**, lo que significa que puede conectarse directamente a Kafka como un consumidor nativo. Esto le permite suscribirse a *topics*, gestionar particiones y offsets, y consumir eventos en tiempo real **sin necesidad de conectores externos ni herramientas intermedias**. Los datos fluyen directamente desde Kafka hacia RisingWave con baja latencia y una arquitectura simplificada.
 
-Implementa un protocolo SQL compatible con PostgreSQL, lo que permite ejecutar consultas estándar sobre flujos de datos, crear fuentes y vistas materializadas, y obtener resultados inmediatos conforme llegan nuevos eventos.
+Además, RisingWave **implementa el protocolo wire de PostgreSQL**, lo que implica que puede ser consultado usando clientes y herramientas estándar de PostgreSQL (como `psql`, DBeaver o PgAdmin). Para el usuario, interactuar con RisingWave es prácticamente igual que trabajar con una base de datos PostgreSQL tradicional, aunque internamente esté procesando flujos de datos en tiempo real.
+
+El procesamiento se define de forma **declarativa mediante SQL**: los streams se modelan como tablas, y las transformaciones se expresan como consultas SQL persistentes. Las vistas materializadas se mantienen actualizadas automáticamente a medida que llegan nuevos eventos, sin necesidad de ejecutar jobs imperativos ni escribir código adicional.
+
+Este proyecto demuestra cómo conectar Kafka con RisingWave para procesar datos en tiempo real usando SQL, combinando la potencia del streaming con la simplicidad y familiaridad del ecosistema PostgreSQL.
 
 <p align="center"> 
   <img src="./imagenes/Captura_0.png"/> 
